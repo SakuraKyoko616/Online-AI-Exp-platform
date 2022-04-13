@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class=table >
+<tr>
+    <th>Experiment Id </th>
+    <th>Experiment Title</th>
+    <th>Time Limit</th>
+    <th>Click to delete</th>
+</tr>
+
+    {% for exp in exps %}
+<tr>
+    <form  method="post">
+    <td >{{exp.exp_ID}}</td>
+      <td >{{exp.exp_Name}} </td>
+    <td>{{exp.timeLimit}}</td>
+    <td><a href="{{url_for('delete_Exp',exp_ID=exp.exp_ID)}}" name="delete_Exp" onclick="{if (confirm('Are you sure to delete this expriment?'))
+{this.document.formname.submit();return true;}return false;}"> Delete</a></td>
+       </form>
+</tr>
+    {%endfor%}
+</table>
+</body>
+</html>

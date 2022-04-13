@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class=table >
+<tr>
+    <th>School Id </th>
+  <th>Teacher ID </th>
+      <th>Password</th>
+    <th>Course ID</th>
+</tr>
+
+    {% for tea in teachers %}
+<tr>
+    <form  method="post">
+    <td >{{tea.school_ID}}</td>
+        <td >{{tea.teacher_ID}} </td>
+  <td>{{tea.password}}</td>
+<td>{{tea.course_ID}}</td>
+       </form>
+</tr>
+    {%endfor%}
+</table>
+</body>
+</html>

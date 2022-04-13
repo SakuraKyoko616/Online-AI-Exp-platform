@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class=table >
+<tr>
+    <th>Experiment Id </th>
+  <th>Experiment Title</th>
+      <th>Time Limit</th>
+    <th>Click to Start</th>
+    <th>Click to Comment</th>
+</tr>
+
+    {% for exp in exps %}
+<tr>
+    <form  method="post">
+    <td >{{exp.exp_ID}}</td>
+        <td >{{exp.exp_Name}} </td>
+  <td>{{exp.timeLimit}}</td>
+    <td><a href="{{url_for('start',exp_Name = exp.exp_Name)}}" name="Start_exp"  target="_blank"> Start</a></td>
+        <td><a href="{{url_for('comment',exp_ID=exp.exp_ID)}}"name="Comment"> Comment</a></td>
+       </form>
+</tr>
+    {%endfor%}
+</table>
+</body>
+</html>
