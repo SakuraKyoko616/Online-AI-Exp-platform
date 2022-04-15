@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test
+  namespace: default
+  labels:
+    name: test
+spec:
+  containers:
+  - name: test
+    image: jupyter/tensorflow-notebook:ubuntu-20.04
+    ports:
+      - containerPort: 8888
+        hostPort: 10002
+        protocol: TCP
+    volumeMounts:
+      - name: nfsdata
+        mountPath: /home/jovyan/work
+  volumes: 
+    - name: nfsdata
+      nfs:
+          path: /home/kyokoz/data/TEST
+          server: 192.168.100.100

@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nfspvc
+  namespace: jhub
+spec:
+  storageClassName: sc
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi

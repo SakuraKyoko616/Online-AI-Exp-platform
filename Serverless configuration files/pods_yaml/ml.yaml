@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ml
+  namespace: default
+  labels:
+    name: ml
+spec:
+  containers:
+  - name: ml
+    image: jupyter/tensorflow-notebook:ubuntu-20.04
+    ports:
+      - containerPort: 8888
+        hostPort: 10000
+        protocol: TCP
+    volumeMounts:
+      - name: nfsdata
+        mountPath: /home/jovyan/work
+  volumes: 
+    - name: nfsdata
+      nfs:
+          path: /home/kyokoz/data/ML
+          server: 192.168.100.100
